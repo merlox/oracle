@@ -6,11 +6,11 @@ contract Oracle {
     uint256 public sequence = 0;
 
     function generateRandom() public {
-        GenerateRandom(sequence, now);
-        sequence++;
+        emit GenerateRandom(sequence, now);
+        sequence += 1;
     }
 
     function __callback(uint256 generatedNumber) public {
-        ShowRandomNumber(generatedNumber);
+        emit ShowRandomNumber(generatedNumber);
     }
 }

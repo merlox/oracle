@@ -1,5 +1,5 @@
-var Migrations = artifacts.require("./Migrations.sol");
+var Oracle = artifacts.require("./Oracle.sol")
 
 module.exports = function(deployer) {
-  deployer.deploy(Migrations);
-};
+  deployer.deploy(Oracle)
+}
