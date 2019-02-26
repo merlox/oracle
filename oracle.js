@@ -38,9 +38,11 @@ function start() {
 
 function startListening() {
     console.log('Listening to events...')
-    subscription = web3.eth.subscribe('logs', { address: contractAddress })
+    subscription = contractInstance.events.GenerateRandom()
     subscription.on('data', newEvent => {
-        console.log('New event', newEvent)
+        console.log('New event', newEvent.returnValues)
+        console.log('Sequence', newEvent.returnValues.sequence)
+        console.log('Timestamp', newEvent.returnValues.timestamp)
         // if (newEvent) generateRandomNumberAndCall()
     })
 }
