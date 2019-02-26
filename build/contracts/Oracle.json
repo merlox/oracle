@@ -13,7 +13,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x529d15cc"
     },
     {
       "anonymous": false,
@@ -30,7 +31,8 @@
         }
       ],
       "name": "GenerateRandom",
-      "type": "event"
+      "type": "event",
+      "signature": "0x1124577e10a9938859db293866a960e232222d0f2048f8dba1f84da8f3edbeea"
     },
     {
       "anonymous": false,
@@ -42,7 +44,8 @@
         }
       ],
       "name": "ShowRandomNumber",
-      "type": "event"
+      "type": "event",
+      "signature": "0xbe95c50300b19721ac91c104e8089d5a2d5194f2a98a7e967b8de5e4086e8574"
     },
     {
       "constant": false,
@@ -51,7 +54,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x02e4af01"
     },
     {
       "constant": false,
@@ -65,7 +69,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x38be706d"
     }
   ],
   "bytecode": "0x60806040526000805534801561001457600080fd5b50610178806100246000396000f3fe608060405234801561001057600080fd5b506004361061005e576000357c01000000000000000000000000000000000000000000000000000000009004806302e4af011461006357806338be706d1461006d578063529d15cc1461009b575b600080fd5b61006b6100b9565b005b6100996004803603602081101561008357600080fd5b810190808035906020019092919050505061010c565b005b6100a3610146565b6040518082815260200191505060405180910390f35b7f1124577e10a9938859db293866a960e232222d0f2048f8dba1f84da8f3edbeea60005442604051808381526020018281526020019250505060405180910390a160016000808282540192505081905550565b7fbe95c50300b19721ac91c104e8089d5a2d5194f2a98a7e967b8de5e4086e8574816040518082815260200191505060405180910390a150565b6000548156fea165627a7a72305820bdc246afb71eeff1da6085da1bc9081ab9adc48b0ef598b97c4c475e5c9119e60029",
@@ -1004,9 +1009,16 @@
     "name": "solc",
     "version": "0.5.4+commit.9549d8ff.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "3": {
+      "events": {},
+      "links": {},
+      "address": "0xbc154DEBA1B7379D6e7c1662aB4842680ca371D3",
+      "transactionHash": "0xfcf18a9018a55dfc5badb51e726c29c255c4a740279fa5081d17e6595e1cd6a2"
+    }
+  },
   "schemaVersion": "3.0.0-beta.2",
-  "updatedAt": "2019-02-25T15:00:39.946Z",
+  "updatedAt": "2019-02-26T09:29:20.874Z",
   "devdoc": {
     "methods": {}
   },
