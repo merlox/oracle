@@ -13,7 +13,8 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x529d15cc"
     },
     {
       "anonymous": false,
@@ -30,7 +31,8 @@
         }
       ],
       "name": "GenerateRandom",
-      "type": "event"
+      "type": "event",
+      "signature": "0x1124577e10a9938859db293866a960e232222d0f2048f8dba1f84da8f3edbeea"
     },
     {
       "anonymous": false,
@@ -47,7 +49,8 @@
         }
       ],
       "name": "ShowRandomNumber",
-      "type": "event"
+      "type": "event",
+      "signature": "0xcec8c659acfc3a53da04d7d265e595176aeef8dc5968ec28ca6bc371e97cdb00"
     },
     {
       "constant": false,
@@ -56,7 +59,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x02e4af01"
     },
     {
       "constant": false,
@@ -74,7 +78,8 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x3102e5ab"
     }
   ],
   "bytecode": "0x60806040526000805534801561001457600080fd5b5061018b806100246000396000f3fe608060405234801561001057600080fd5b506004361061005e576000357c01000000000000000000000000000000000000000000000000000000009004806302e4af01146100635780633102e5ab1461006d578063529d15cc146100a5575b600080fd5b61006b6100c3565b005b6100a36004803603604081101561008357600080fd5b810190808035906020019092919080359060200190929190505050610116565b005b6100ad610159565b6040518082815260200191505060405180910390f35b7f1124577e10a9938859db293866a960e232222d0f2048f8dba1f84da8f3edbeea60005442604051808381526020018281526020019250505060405180910390a160016000808282540192505081905550565b7fcec8c659acfc3a53da04d7d265e595176aeef8dc5968ec28ca6bc371e97cdb008282604051808381526020018281526020019250505060405180910390a15050565b6000548156fea165627a7a72305820ca6db32c34a6235d917375e13e16b6d944748660e1e71e867355c3f3700ccf470029",
@@ -1157,12 +1162,24 @@
     "3": {
       "events": {},
       "links": {},
-      "address": "0x46E0aCeCd26c30e20396D596D08978F27075DBae",
-      "transactionHash": "0x7d266818eb1da75722d576cf6d98ebb165f608d5f5cb04b06238b58f1d6a5699"
+      "address": "0x646DE5CF6B8f874C3641Afd6061Ed270E254f1dB",
+      "transactionHash": "0x60fb07d5a27f6ca64d57a64fe9c9cc50be392f3f0a3b98401120aa2ab21f4306"
+    },
+    "1551259071942": {
+      "events": {},
+      "links": {},
+      "address": "0xF588F4060Ae44613a95F6f5fdfe3635A5C963cD1",
+      "transactionHash": "0x3e197cc978f426dfd18d401beaf2a078fe9c6e1e94852b0e52b827c75bf00fa7"
+    },
+    "1551259906990": {
+      "events": {},
+      "links": {},
+      "address": "0xA6b465dEcF81033195637269269cd57638aE7246",
+      "transactionHash": "0xeca2124b326dfdbbda19a182244ca2377de3f5f86aaaf810993f19b4230d9be1"
     }
   },
   "schemaVersion": "3.0.0-beta.2",
-  "updatedAt": "2019-02-27T09:09:12.852Z",
+  "updatedAt": "2019-02-27T09:46:44.881Z",
   "devdoc": {
     "methods": {}
   },

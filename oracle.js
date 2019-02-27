@@ -5,10 +5,10 @@ const infura = 'wss://ropsten.infura.io/ws/v3/f7b2c280f3f440728c2b5458b41c663d'
 let contractAddress
 let contractInstance
 let web3
-let subscription
 let privateKey
 let myAddress
 
+// To generate the private key and address needed to sign transactions
 function generateAddressesFromSeed(seed) {
     let bip39 = require("bip39");
     let hdkey = require('ethereumjs-wallet/hdkey');
@@ -32,18 +32,21 @@ function start() {
     contractAddress = ABI.networks['3'].address
     contractInstance = new web3.eth.Contract(ABI.abi, contractAddress)
 
-    // startListening()
+    startListening()
     generateRandom()
 }
 
 function startListening() {
     console.log('Listening to events...')
-    subscription = contractInstance.events.GenerateRandom()
+    // Listen to the generate random event
+    const subscription = contractInstance.events.GenerateRandom()
     subscription.on('data', newEvent => {
-        console.log('New event', newEvent.returnValues)
-        console.log('Sequence', newEvent.returnValues.sequence)
-        console.log('Timestamp', newEvent.returnValues.timestamp)
-        // if (newEvent) generateRandomNumberAndCall()
+        callback(newEvent.returnValues.sequence)
+    })
+
+    const subscription2 = contractInstance.events.ShowRandomNumber()
+    subscription2.on('data', newEvent => {
+        console.log('Received random number!', newEvent.returnValues.sequence, newEvent.returnValues.number)
     })
 }
 
@@ -52,7 +55,7 @@ function generateRandom() {
     const encodedGenerateRandom = contractInstance.methods.generateRandom().encodeABI()
     const tx = {
         from: myAddress,
-        gas: 7e6,
+        gas: 6e6,
         gasPrice: 5,
         to: contractAddress,
         data: encodedGenerateRandom,
@@ -63,24 +66,23 @@ function generateRandom() {
         console.log('Generating transaction...')
         web3.eth.sendSignedTransaction(signed.rawTransaction)
             .on('receipt', result => {
-                console.log('Transaction confirmed!', result)
+                console.log('Generate random transaction confirmed!')
             })
             .catch(error => console.log(error))
     })
 }
 
-// To generate random numbers and execute the __callback function from the smart contract
-function callback() {
-    const number = Math.random()
-    console.log(number)
+// To generate random numbers between 1 and 100 and execute the __callback function from the smart contract
+function callback(sequence) {
+    const generatedNumber = Math.floor(Math.random() * 100 + 1)
 
-    const encodedGenerateRandom = contractInstance.methods.generateRandom().encodeABI()
+    const encodedCallback = contractInstance.methods.__callback(sequence, generatedNumber).encodeABI()
     const tx = {
         from: myAddress,
-        gas: 7e6,
+        gas: 6e6,
         gasPrice: 5,
         to: contractAddress,
-        data: encodedGenerateRandom,
+        data: encodedCallback,
         chainId: 3
     }
 
@@ -88,7 +90,7 @@ function callback() {
         console.log('Generating transaction...')
         web3.eth.sendSignedTransaction(signed.rawTransaction)
             .on('receipt', result => {
-                console.log('Transaction confirmed!', result)
+                console.log('Callback transaction confirmed!')
             })
             .catch(error => console.log(error))
     })
