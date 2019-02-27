@@ -32,21 +32,17 @@ function start() {
     contractAddress = ABI.networks['3'].address
     contractInstance = new web3.eth.Contract(ABI.abi, contractAddress)
 
-    startListening()
-    generateRandom()
-}
-
-function startListening() {
     console.log('Listening to events...')
-    // Listen to the generate random event
+    // Listen to the generate random event for executing the __callback() function
     const subscription = contractInstance.events.GenerateRandom()
     subscription.on('data', newEvent => {
         callback(newEvent.returnValues.sequence)
     })
 
+    // Listen to the ShowRandomNumber() event that gets emmited after the callback
     const subscription2 = contractInstance.events.ShowRandomNumber()
     subscription2.on('data', newEvent => {
-        console.log('Received random number!', newEvent.returnValues.sequence, newEvent.returnValues.number)
+        console.log('Received random number! Sequence:', newEvent.returnValues.sequence, 'Random generated number:', newEvent.returnValues.number)
     })
 }
 
